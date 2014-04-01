@@ -103,3 +103,48 @@ function register_taxonomy_languages() {
 
     register_taxonomy( 'technology', array('project'), $args );
 }
+
+add_action( 'init', 'register_cpt_talk' );
+
+function register_cpt_talk() {
+
+	$labels = array(
+		'name' => _x( 'Talks', 'tomjn_talk' ),
+		'singular_name' => _x( 'Talk', 'tomjn_talk' ),
+		'add_new' => _x( 'Add New', 'tomjn_talk' ),
+		'add_new_item' => _x( 'Add New Talk', 'tomjn_talk' ),
+		'edit_item' => _x( 'Edit Talk', 'v' ),
+		'new_item' => _x( 'New Talk', 'tomjn_talk' ),
+		'view_item' => _x( 'View Talk', 'tomjn_talk' ),
+		'search_items' => _x( 'Search Talks', 'v' ),
+		'not_found' => _x( 'No talks found', 'v' ),
+		'not_found_in_trash' => _x( 'No talks found in Trash', 'tomjn_talk' ),
+		'parent_item_colon' => _x( 'Parent Talk:', 'tomjn_talk' ),
+		'menu_name' => _x( 'Talks', 'tomjn_talk' ),
+	);
+
+	$args = array(
+		'labels' => $labels,
+		'hierarchical' => false,
+		'description' => 'Talks I\'ve given at conferences and usergroups',
+		'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields' ),
+
+		'public' => true,
+		'show_ui' => true,
+		'show_in_menu' => true,
+		'menu_position' => 20,
+
+		'show_in_nav_menus' => true,
+		'publicly_queryable' => true,
+		'exclude_from_search' => false,
+		'has_archive' => true,
+		'query_var' => true,
+		'can_export' => true,
+		'rewrite' => array(
+			'slug' => 'talks'
+		),
+		'capability_type' => 'post'
+	);
+
+	register_post_type( 'tomjn_talks', $args );
+}
