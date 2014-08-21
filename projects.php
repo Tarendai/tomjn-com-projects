@@ -102,6 +102,41 @@ function register_taxonomy_languages() {
     );
 
     register_taxonomy( 'technology', array('project'), $args );
+    
+    $talk_tag_labels = array( 
+        'name' => _x( 'Talk Tags', 'technology' ),
+        'singular_name' => _x( 'Talk Tag', 'technology' ),
+        'search_items' => _x( 'Search Talk Tags', 'technology' ),
+        'popular_items' => _x( 'Popular Talk Tags', 'technology' ),
+        'all_items' => _x( 'All Talk Tags', 'technology' ),
+        'parent_item' => _x( 'Parent Talk Tag', 'technology' ),
+        'parent_item_colon' => _x( 'Parent Talk Tag:', 'technology' ),
+        'edit_item' => _x( 'Edit Talk Tag', 'technology' ),
+        'update_item' => _x( 'Update Talk Tag', 'technology' ),
+        'add_new_item' => _x( 'Add New Talk Tag', 'technology' ),
+        'new_item_name' => _x( 'New Talk Tag', 'technology' ),
+        'separate_items_with_commas' => _x( 'Separate talk tags with commas', 'technology' ),
+        'add_or_remove_items' => _x( 'Add or remove Talk Tags', 'technology' ),
+        'choose_from_most_used' => _x( 'Choose from most used Talk Tags', 'technology' ),
+        'menu_name' => _x( 'Talk Tag', 'technology' ),
+    );
+
+    $args = array( 
+        'labels' => $talk_tag_labels,
+        'public' => true,
+        'show_in_nav_menus' => true,
+        'show_ui' => true,
+        'show_tagcloud' => true,
+        'show_admin_column' => true,
+        'hierarchical' => false,
+
+        'rewrite' => array(
+		'slug' => 'talktags'
+	),
+        'query_var' => true
+    );
+
+    register_taxonomy( 'tomjn_talk_tag', array('tomjn_talks'), $args );
 }
 
 add_action( 'init', 'register_cpt_talk' );
