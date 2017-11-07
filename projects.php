@@ -1,11 +1,11 @@
 <?php
 /*
  Plugin Name: TomJN Projects
- Plugin URI: http://tomjn.com
+ Plugin URI: https://tomjn.com
  Description: Define post types etc
  Version: 1.0
  Author: Tom J Nowell
- Author URI: http://tomjn.com
+ Author URI: https://tomjn.com
 */
 
 
@@ -133,7 +133,8 @@ function register_taxonomy_languages() {
         'rewrite' => array(
 		'slug' => 'talktags'
 	),
-        'query_var' => true
+        'query_var' => true,
+	'show_in_rest' => true
     );
 
     register_taxonomy( 'tomjn_talk_tag', array('tomjn_talks'), $args );
