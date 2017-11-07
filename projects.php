@@ -178,7 +178,8 @@ function register_cpt_talk() {
 		'rewrite' => array(
 			'slug' => 'talks'
 		),
-		'capability_type' => 'post'
+		'capability_type' => 'post',
+		'show_in_rest' => true,
 	);
 
 	register_post_type( 'tomjn_talks', $args );
